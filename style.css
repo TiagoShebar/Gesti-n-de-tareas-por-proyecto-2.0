@@ -1,9 +1,151 @@
-
-
-
 body {
-    background-color: rgb(86, 157, 204);
+    padding: 0;
+    margin: 0;
+    background-color: rgb(186, 181, 255);
     text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+section
+{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+p {/*el p es  la descripcion del proyecto*/
+    text-align: center;
+    color: rgb(73, 73, 73);
+    margin: 0 auto;
+}
+
+#titulo{
+    font-size: 30px;
+}
+
+section div
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#listaProyectos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    padding: 0;
+    margin: 0;
+}
+
+.contenedorTituloDescripcion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+.contenedorTituloDescripcion h3, .contenedorTituloDescripcion p {
+    margin: 0;
+}
+.contenedorProyecto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    
+    width: 30%;
+    height: auto;
+    padding: 0.5%; /* Establece una altura máxima para el contenedor */ /* Agrega un poco de relleno para el contenido */ /* Oculta el desbordamiento del contenedor */
+    padding-bottom: 2%;
+    background-color:rgb(235, 216, 255);
+    
+    font-size: 20px;
+    border: 0.1px solid rgb(207, 206, 219);
+    border-radius: 25px ;
+    /*text-align: center;*/
+
+    overflow: hidden; /* Para ocultar el contenido que sobresalga del contenedor */
+    transition: height 0.3s ease; /* Transición suave para cambiar la altura */
+
+}
+.contenedorListaTareas{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0%;
+}
+.contenedorProyecto.expandido {
+    height: auto; /* Altura automática para mostrar todo el contenido */
+}
+
+.contenedorProyecto h3{
+    font-size: 30px; 
+    overflow-y: auto; /* Permite el desplazamiento vertical dentro del contenedor */
+    max-height: 100%; /* Establece una altura máxima para el contenido */
+    width: calc(100% - 50px); /* Ajusta el ancho para dejar espacio para el botón de eliminar */
+}
+
+.contenedorProyecto p {
+    overflow-y: auto;
+    max-height: 100%;
+    width: calc(100% - 50px);
+}
+
+.contenedorBuscar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    text-align: center;
+}
+.contenedorTarea h4 {
+    overflow-y: auto;
+    margin: 0;
+    height: auto;
+    width: 30%;
+}
+
+.contenedorTarea span {
+    overflow-y: auto;
+    max-height: 100%;
+    width: calc(100% - 40px);
+}
+
+.contenedorTarea {
+    width: auto;
+    display:flex;
+    flex-direction: row;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+    overflow: hidden; 
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+.contenedorInBuscar{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/*input*/
+input{
+    margin: 1%;
 }
 
 input[type="checkbox"]{
@@ -11,11 +153,11 @@ input[type="checkbox"]{
 }
 
 input[type="text"]{
-    width: 300px;
+    width: 30%;
     height: 30px;
     text-align: center;
     font-style: italic;
-    color: rgb(70, 164, 226);
+    color: rgb(110, 110, 110);
     font-size: 15px;
     align-self: center;
 }
@@ -33,59 +175,31 @@ input[type="text"]{
 
 .contenedorProyecto input[type="date"]{
     width: 100px;
-    height: 30px;
+    height: 32.5px;/*le puse un height raro para que fucione con el resto*/
     text-align: center;
     align-self: center;
 }
 
-#mas {
-    width: 40px;
-    height: 36px;
-    background-color: rgb(70, 164, 226);
+/*botones*/
+
+#agregarProyecto {
+    width: auto;
+    height: 32.8px;
+    align-self: center;
     color: white;
-}
+    border-radius: 4px;
+    background-color: rgb(47, 86, 216);
+    border: 1px solid rgb(0, 0, 36);
 
-#array {
-    margin: 0;
+}
+.emoji-button{
     padding: 0;
+    height: auto;
+    width: auto;
+    border: none;
+    background-color: transparent;
+    margin: 2%;
 }
-
-#boton-calcular {
-    margin-top: 10%;
-}
-
-.contenedorProyecto {
-    background-color: white;
-    width: 10%;
-    height: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    font-size: 20px;
-    border: 2px solid black;
-    text-align: center;
-    max-width: 50%;
-    max-height: 1000px;
-    overflow: hidden; 
-    padding: 5px; /* Establece una altura máxima para el contenedor */ /* Agrega un poco de relleno para el contenido */ /* Oculta el desbordamiento del contenedor */
-}
-
-.contenedorProyecto h3{
-    font-size: 30px; 
-    overflow-y: auto; /* Permite el desplazamiento vertical dentro del contenedor */
-    max-height: 100%; /* Establece una altura máxima para el contenido */
-    width: calc(100% - 50px); /* Ajusta el ancho para dejar espacio para el botón de eliminar */
-}
-
-.contenedorProyecto p {
-    overflow-y: auto;
-    max-height: 100%;
-    width: calc(100% - 50px);
-}
-
-
 .contenedor button {
     width: 20%;
     color:red;
@@ -98,85 +212,3 @@ input[type="text"]{
     position: sticky;
 }
 
-
-p {
-    width: 50%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-#boton-calcular {
-    background-color: rgb(70, 164, 226); 
-    color: white;   
-}
-
-#agregarProyecto {
-    width: 5%;
-    height: 30px;
-    align-self: center;
-
-}
-
-.contenedorProyecto {
-    background-color: white;
-    width: 30%;
-    margin: 10px auto; /* Centra el contenedor en la página */
-    overflow: hidden; /* Para ocultar el contenido que sobresalga del contenedor */
-    transition: height 0.3s ease; /* Transición suave para cambiar la altura */
-}
-
-.contenedorTituloDescripcion {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    width: 100%;
-}
-
-.contenedorTituloDescripcion h3, .contenedorTituloDescripcion p {
-    margin: 0;
-}
-
-.contenedorProyecto.expandido {
-    height: auto; /* Altura automática para mostrar todo el contenido */
-}
-
-.contenedorBuscar {
-    margin-bottom: 5%;
-    margin-top: 5%;
-    text-align: center;
-}
-
-.contenedorTarea h4 {
-    overflow-y: auto;
-    max-height: 100%;
-    width: calc(100% - 40px);
-}
-
-.contenedorTarea span {
-    overflow-y: auto;
-    max-height: 100%;
-    width: calc(100% - 40px);
-}
-
-.contenedorTarea {
-    width: 400px;
-    text-align: center;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; 
-    height: 50px;
-    margin: 0 auto;
-    border: 2px solid black;
-    text-align: center;
-    max-width: 90%;
-    max-height: 1000px;
-    margin-bottom: 3%;
-}
-
-.contenedorTarea button {
-    height: 30px;
-}

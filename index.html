@@ -9,11 +9,13 @@
 </head>
 <body>
     <section>
+        <h1 id="titulo">TODO LIST</h1>
         <div>
-            <input type="text" id="nombreProyecto" placeholder="nombre">
+            <input type="text" id="nombreProyecto" placeholder="nombre" >
             <input type="text" id="descripcionProyecto" placeholder="descripcion">
-            <button onclick="agregarProyecto(document.querySelector('#nombreProyecto').value, document.querySelector('#descripcionProyecto').value !== null ? document.querySelector('#descripcionProyecto').value : '')" id="agregarProyecto">agregar</button>
+            <button onclick="agregarProyecto(document.querySelector('#nombreProyecto').value, document.querySelector('#descripcionProyecto').value !== null ? document.querySelector('#descripcionProyecto').value : '')" id="agregarProyecto">add</button>
         </div>
+        <h3>TUS PROYECTOS</h3>
         <ul id="listaProyectos"> 
             
         </ul>

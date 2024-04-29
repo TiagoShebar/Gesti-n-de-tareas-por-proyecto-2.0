@@ -35,7 +35,7 @@ const validarNombreProyecto = (nombre) => {
 
 const mostrarProyecto = (proyecto) => {
     const listaProyectosContenedor = document.getElementById("listaProyectos");
-    var contenedorProyecto = document.createElement("article");
+    var contenedorProyecto = document.createElement("article"); //creacion article --> clase contenedorProyecto
     contenedorProyecto.setAttribute("id", proyecto.nombreProyecto);//le pongo id solo al contenedor Total Del Proyecto
     contenedorProyecto.setAttribute("class", "contenedorProyecto");
     var contenedorTituloDescripcion = document.createElement("div");
@@ -53,16 +53,19 @@ const mostrarProyecto = (proyecto) => {
     contenedorTituloDescripcion.setAttribute("class", "contenedorTituloDescripcion");
     var contenedorTareas = document.createElement("div");
     contenedorTareas.setAttribute("id", `tareas.${proyecto.nombreProyecto}`);
-    var inputTarea = document.createElement("input");
+    var inputTarea = document.createElement("input");//creacion input tarea
     inputTarea.setAttribute("type", "text");
     inputTarea.setAttribute("name", "toDo");
-    var inputDescripcion = document.createElement("input");
+    inputTarea.textContent= "tarea";
+    var inputDescripcion = document.createElement("input"); //creacion input descripcion de la tarea
     inputDescripcion.setAttribute("type", "text");
     inputDescripcion.setAttribute("name", "tareaDescripcion");
-    var inputFechaVencimiento = document.createElement("input");
+    inputDescripcion.textContent="descripcion";
+    var inputFechaVencimiento = document.createElement("input");//creacion input fechaVencimiento
     inputFechaVencimiento.setAttribute("type", "date");
     var button = document.createElement("button");//BOTON AGREGAR TAREA
     button.textContent = "➕";
+    button.className="emoji-button";
     button.addEventListener("click", () => {
         agregarTarea(proyecto.nombreProyecto, inputTarea.value, inputDescripcion.value, inputFechaVencimiento.value, contenedorTareas);
       });      
@@ -171,7 +174,8 @@ const mostrarTareas = (proyecto, contenedorTareas) => {
             descripcionTarea.style.display = "none";
         }
         var borrarButton = document.createElement("button");
-        borrarButton.textContent = "eliminar";
+        borrarButton.textContent = "🗑️";
+        borrarButton.className="emoji-button"
         borrarButton.addEventListener("click", function () {
             var index = Array.from(contenedorListaTareas.children).indexOf(this.parentElement);
             borrarToDo(proyecto, contenedorTareas, index);
@@ -184,19 +188,26 @@ const mostrarTareas = (proyecto, contenedorTareas) => {
     }
     if(proyecto.listaTareas.length > 0){
         const contenedorBuscar = document.createElement("div");
+        const contenedorInputButton = document.createElement("div");
+        const textoBuscar = document.createElement("p");
+        textoBuscar.textContent = "Busca la tarea por fecha:";
         const inputBuscar = document.createElement("input");
         inputBuscar.setAttribute("type", "date");
         const buttonBuscar = document.createElement("button");
-        buttonBuscar.textContent = "buscar";
+        buttonBuscar.textContent = "🔍";
+        buttonBuscar.className= "emoji-button";
         const resultado = document.createElement("div");
         resultado.style.display = "none";
         buttonBuscar.addEventListener("click", () => {
             buscarTareasProyectoFechaVencimiento(proyecto.listaTareas, inputBuscar.value, resultado);
         });
-        contenedorBuscar.appendChild(inputBuscar);
-        contenedorBuscar.appendChild(buttonBuscar);
-        contenedorBuscar.appendChild(resultado);
+        contenedorBuscar.appendChild(contenedorInputButton);
+        contenedorBuscar.appendChild(resultado)
+        contenedorInputButton.appendChild(textoBuscar);
+        contenedorInputButton.appendChild(inputBuscar);
+        contenedorInputButton.appendChild(buttonBuscar);
         contenedorBuscar.setAttribute("class", "contenedorBuscar");
+        contenedorInputButton.setAttribute("class", "contenedorInBuscar");
         contenedorListaTareas.appendChild(contenedorBuscar);
     }
     contenedorTareas.appendChild(contenedorListaTareas);
